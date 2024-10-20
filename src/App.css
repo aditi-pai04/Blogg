@@ -1,38 +1,79 @@
-.App {
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background animation */
+@keyframes backgroundAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.home-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #f093fb, #f5576c, #4facfe);
+  background-size: 300% 300%;
+  animation: backgroundAnimation 15s ease infinite;
+  color: white;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Title and subtitle */
+.home-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  animation: fadeIn 2s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.home-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  animation: fadeIn 3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Buttons styling */
+.home-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1.2rem;
   color: white;
+  text-decoration: none;
+  border: 2px solid white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.login-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.register-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Button hover effect */
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Fade-in animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

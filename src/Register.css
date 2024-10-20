@@ -1,0 +1,62 @@
+/* Container for the register form */
+.register-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #89f7fe, #66a6ff); /* Soft gradient for a professional look */
+    color: white;
+    text-align: center;
+    animation: fadeIn 1.5s ease; /* Smooth fade-in */
+}
+
+/* Register form styling */
+.register-form {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+/* Input field styling */
+.input-field {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.input-field:focus {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Register button */
+.register-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4facfe;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #50a6ff;
+    transform: translateY(-3px);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

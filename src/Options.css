@@ -1,0 +1,107 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Background animation */
+  @keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Container for options page */
+  .options-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(45deg, #f093fb, #f5576c, #4facfe);
+    background-size: 300% 300%;
+    animation: backgroundAnimation 15s ease infinite;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Title and user ID display */
+  .options-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+    animation: fadeIn 2s ease;
+  }
+  
+  /* Blog creation button */
+  .create-blog-btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #ff4081;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .create-blog-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  /* Blog post cards */
+  .blog-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Fade-in animations */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* Search Input Styling */
+input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.like-dislike-container {
+    margin-top: 10px;
+}
+
+.like-btn,
+.dislike-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.like-btn:hover,
+.dislike-btn:hover {
+    color: #f0a500; /* Highlight color on hover */
+}
