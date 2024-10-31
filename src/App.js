@@ -5,6 +5,7 @@ import Register from './Register';
 import Options from './Options';
 import CreateBlogPost from './CreateBlogPost';
 import UserProfile from './UserProfile';
+import Support from './SupportPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/options" element={<Options />} />
           <Route path="/create-blog" element={<CreateBlogPost />} /> 
           <Route path="/user-profile" element={<UserProfile />} /> 
+          <Route path="/support" element={<Support />} />
         </Routes>
       </Router>
   );

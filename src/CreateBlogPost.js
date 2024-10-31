@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { db } from './firebaseConfig';
 import { collection, addDoc } from 'firebase/firestore';
 import './CreateBlogPost.css'
+import Footer from './Footer';
 
 function CreateBlogPost() {
     const [title, setTitle] = useState('');
@@ -59,6 +60,7 @@ function CreateBlogPost() {
                 </div>
                 <button type="submit" className="submit-button">Submit</button>
             </form>
+            <Footer/>
         </div>
     );
 }

@@ -1,0 +1,57 @@
+.navbar {
+    background-color: #f8f9fa; /* Softer background to match other pages */
+    padding: 8px 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    margin: 0 12px;
+    position: relative;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 22px;
+    transition: color 0.3s ease;
+}
+
+.navbar li a:hover {
+    color: #4a90e2; /* Softer hover color */
+}
+
+.navbar li a::after {
+    content: attr(title); /* Display the title attribute */
+    position: absolute;
+    top: 120%; /* Position tooltip below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px; /* Smaller font size */
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none; /* Prevent hover on tooltip itself */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(-50%) translateY(8px); /* Start below icon */
+}
+
+.navbar li a:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Slide up effect */
+}

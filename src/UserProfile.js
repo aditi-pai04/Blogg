@@ -4,6 +4,8 @@ import { collection, getDocs, query, where, updateDoc, doc, getDoc } from 'fireb
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from './firebaseConfig'; // Firebase config for Firestore and Storage
 import './UserProfile.css'; // Custom CSS for styling
+import Footer from './Footer';
+import Navbar from './Navbar';
 
 function UserProfile() {
     const location = useLocation();
@@ -83,9 +85,13 @@ function UserProfile() {
         }
     };
 
+    
     return (
+        <>
+        <Navbar/>
         <div className="user-profile-container">
-            <h2>User Profile</h2>
+            
+        <h2>{userDetails.name || 'User Profile'}</h2>
             <div className="profile-details">
                 <div className="profile-picture">
                     {profileImageUrl ? (
@@ -97,7 +103,7 @@ function UserProfile() {
                 </div>
 
                 <div className="user-info">
-                    <h3>{userDetails.username || 'Username'}</h3>
+                    {/* <h3>{userDetails.username || 'Username'}</h3> */}
                     <p>Bio: {userDetails.bio || 'No bio yet'}</p>
                     <textarea
                         placeholder="Update your bio..."
@@ -110,16 +116,19 @@ function UserProfile() {
 
             <div className="user-activity">
                 <h3>Blogs You've Written</h3>
-                {blogsWritten.length > 0 ? (
-                    <ul>
-                        {blogsWritten.map(blog => (
-                            <li key={blog.id}>{blog.title}</li>
-                        ))}
-                    </ul>
-                ) : (
-                    <p>No blogs written yet.</p>
-                )}
-
+{blogsWritten.length > 0 ? (
+    <ul>
+        {blogsWritten.map(blog => (
+            <li key={blog.id} className="blog-card">
+                <h4>{blog.title}</h4>
+                <p>{blog.description || "No description available"}</p>
+            </li>
+        ))}
+    </ul>
+) : (
+    <p>No blogs written yet.</p>
+)}
+{/* 
                 <h3>Blogs You've Liked</h3>
                 {blogsLiked.length > 0 ? (
                     <ul>
@@ -129,20 +138,26 @@ function UserProfile() {
                     </ul>
                 ) : (
                     <p>No liked blogs.</p>
-                )}
+                )} */}
 
                 <h3>Blogs You've Saved</h3>
                 {blogsSaved.length > 0 ? (
-                    <ul>
+                    <div className="blog-grid">
                         {blogsSaved.map(blog => (
-                            <li key={blog.id}>{blog.title}</li>
+                            <div key={blog.id} className="blog-card">
+                                <h4>{blog.title}</h4>
+                                <p>{blog.description || 'No description available.'}</p>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                 ) : (
                     <p>No saved blogs.</p>
                 )}
+
             </div>
+            <Footer/>
         </div>
+        </>
     );
 }
 

@@ -13,17 +13,17 @@
   }
   
   .user-profile-container {
-    height: 100vh;
+    
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #6a11cb, #2575fc, #ff6a00);
+    background: linear-gradient(45deg, #6a11cb, #598de6, #ff6a00);
     background-size: 300% 300%;
     animation: backgroundAnimation 15s ease infinite;
-    color: white;
+    color: rgba(41, 39, 80, 0.836);
     text-align: center;
-    padding: 20px;
   }
   
   /* Title and subtitle */
@@ -110,8 +110,8 @@
   
   /* Button styling */
   button {
-    background: #ff6a00;
-    color: white;
+    background: #ccff00;
+    color: rgb(41, 39, 80);
     border: none;
     border-radius: 5px;
     padding: 10px 15px;
@@ -124,36 +124,106 @@
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-3px);
   }
-  
-  /* User activity sections */
   .user-activity {
     margin-top: 30px;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .user-activity h3 {
     font-size: 1.5em;
-    color: #ffffff;
+    color: #302020;
+    margin-bottom: 20px;
   }
-  
+  .blog-card h4 {
+    color: black;
+  }
   .user-activity ul {
-    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
     padding: 0;
+    list-style: none;
+    width: 100%;
+  }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
   }
   
-  .user-activity li {
-    padding: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .user-activity p {
-    color: #ffffff;
-    font-style: italic;
+  /* Blog card styling */
+  .blog-card {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     text-align: center;
+    cursor: pointer;
   }
   
-  /* Fade-in animations */
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+  /* Hover and active effects */
+  .blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
   }
+  
+  .blog-card:active {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .bio-container {
+    background: rgba(255, 255, 255, 0.1); /* Slightly translucent background */
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Adding wave animation to bio text */
+@keyframes waveText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.bio-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgb(41, 39, 80);;
+    animation: waveText 2s ease-in-out infinite; /* Smooth wave motion */
+    padding: 10px;
+    line-height: 1.5;
+}
+
+/* Optional: Add a subtle highlight behind the bio */
+.bio-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+    transform: translateX(-50%);
+    filter: blur(40px);
+    animation: pulseHighlight 8s ease-in-out infinite;
+}
+
+/* Pulse animation for background effect */
+@keyframes pulseHighlight {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+}
   
